@@ -9,16 +9,12 @@ import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class PortfolioDTO implements Serializable {
+public class PaisDTO implements Serializable {
 
     @JsonProperty
     private Long id;
     @JsonProperty
     private String name;
-    @JsonProperty
-    private String image;
-    @JsonProperty
-    private String description;
 
     public Long getId() {
         return id;
@@ -36,36 +32,17 @@ public class PortfolioDTO implements Serializable {
         this.name = name;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PortfolioDTO that = (PortfolioDTO) o;
+        PaisDTO that = (PaisDTO) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(image, that.image) &&
-                Objects.equals(description, that.description);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, image, description);
+        return Objects.hash(id, name);
     }
-
 }
